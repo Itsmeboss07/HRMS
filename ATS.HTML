@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Applicant Tracking System</title>
+    <style>
+        /* CSS styles for the layout and other elements */
+        /* ... */
+    </style>
+</head>
+<body>  
+    <div class="container">
+        <h1>Job Application Form</h1>
+        <form id="application-form" action="/submit" method="post" enctype="multipart/form-data">
+            <label for="full-name">Full Name:</label>
+            <input type="text" id="full-name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+            
+            <label for="phone">Phone:</label>       
+            <input type="tel" id="phone" required>
+            
+            <label for="resume">Resume:</label>
+            <input type="file" id="resume" required>
+            
+            <label for="cover-letter">Cover Letter:</label>
+            <textarea id="cover-letter" required></textarea>
+            
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
