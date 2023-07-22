@@ -1,224 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>HRMS - Home</title>
+    <title>HRMS</title>
     <style>
         * {
-            margin: 0%;
-            padding: 0%;
-            box-sizing: unset;
+            margin: 0;
+            padding: 0;
         }
-        
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+       
+        html, body {
+            height: 100%;
         }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+       
+        .main {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: linear-gradient(to top, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.5) 50%), url(HRsample.jpg);
+            background-position: center;
+            background-size: cover;
         }
-        
-        header {
-            background-color: #1d2127;
-            padding: 10px;
-            color: #fff;
-            text-align: center;
+       
+        .navbar {
+            width: 1200px;
+            height: 75px;
+            margin: auto;
         }
-        
-        h1 {
-            font-size: 24px;
-            margin: 10px 0;
+       
+        .icon {
+            width: 200px;
+            float: left;
+            height: 70px;
         }
-        
-        .hero-section {
+       
+        .logo {
+            color: #af1a1a;
+            font-size: 35px;
+            font-family: Arial;
+            padding-left: 20px;
+            float: left;
+            padding-top: 10px;
+            margin-top: 5px;
+        }
+       
+        .menu {
+            width: 600px;
+            float: right;
+            height: 90px;
+        }
+       
+        ul {
+            float: left;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 300px;
-            background-color: #1d2127;
-            border-radius: 8px;
-            margin-top: 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        
-        .hero-section h2 {
-            font-size: 36px;
-            color: #ffffff;
-            text-align: center;
+       
+        ul li {
+            list-style: none;
+            margin-left: 62px;
+            margin-top: 27px;
+            font-size: 14px;
         }
-        
-        .sidebar {
-            background-color: #1d2127;
-            border-radius: 0px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            grid-row: auto;
-            display: ruby;
-            flex-direction: column;
-            padding: 20px;
-        }
-        
-        .sidebar a {
-            display: inline-flex;
-            color: #fff;
+       
+        ul li a {
             text-decoration: none;
-            margin-bottom: 10px;
-            padding: 20px 10px;
-            border-radius: 4px;
-            background-color: #1d2127;
-            transition: background-color 0.3s ease;
-            opacity: 0.8;
-        }
-        
-.sidebar a:hover {
-    background-color: #f50d02;
-}
-
-.sidebar a.active {
-    background-color: #1d2127;
-}
-.sidebar a:hover,
-.sidebar a.active {
-    opacity: 0.8;
-}
-        .features-section {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-gap: 20px;
-            margin-top: 40px;
-        }
-        
-        .feature {
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        
-        .feature h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
-        
-        .feature p {
-            font-size: 14px;
-            color: #555;
-            line-height: 1.4;
-        }
-        
-        footer {
-            background-color: #303030;
-            padding: 10px;
             color: #fff;
+            font-family: Arial;
+            font-weight: bold;
+            transition: 0.4s ease-in-out;
+        }
+       
+        ul li a:hover {
+            color: #ff7200;
+        }
+       
+        .content {
+            width: 1200px;
+            flex: 1;
+            color: #fff;
+            margin: auto;
+            position: relative;
+        }
+       
+        .content .par {
+            padding-left: 20px;
+            padding-bottom: 25px;
+            font-family: Arial;
+            letter-spacing: 1.2px;
+            line-height: 30px;
+        }
+       
+        .content h1 {
+            font-family: 'Times New Roman';
+            font-size: 50px;
+            padding-left: 20px;
+            margin-top: 9%;
+            letter-spacing: 2px;
+        }
+       
+        .content .cn {
+            width: 160px;
+            height: 40px;
+            background: #e52828;
+            border: none;
+            margin-bottom: 10px;
+            margin-left: 20px;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: .4s ease;
+        }
+       
+        .content .cn a {
+            text-decoration: none;
+            color: #000;
+            transition: .3s ease;
+        }
+       
+        .cn:hover {
+            background-color: #fff;
+        }
+       
+        .content span {
+            color: #c22e2e;
+            font-size: 65px;
+        }
+       
+        footer {
+            background-color: #100f0f87;
+            color: #b3adad;
+            padding: 20px;
             text-align: center;
-            margin-top: 40px;
         }
-        
-        footer p {
-            font-size: 14px;
+       
+        .logout-btn {
+            background-color: #100f0f87;
+            color: #b3adad;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-left: 20px;
         }
-        .scrolling-posts {
-  max-height: 200px; /* Adjust the height as needed */
-  overflow: auto;
-  align-items: center;
-}
-        .news-feed {
-  margin-top: 20px;
-  position: sticky;
-}
-
-.news-item {
-  background-color: #f4f4f4;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 4px;
-}
-
-.news-item h3 {
-  font-size: 18px;
-  margin-bottom: 5px;
-}
-
-.news-item p {
-  font-size: 14px;
-  color: #555;
-  line-height: 1.4;
-}
-
-        a {
-  text-decoration: none;
-}
-
+       
+        .logout-btn:hover {
+            background-color: #fff;
+            color: #100f0f87;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Human Resource Management System</h1>
-        </header>
-        <div class="sidebar">
-            <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Feed</a></li>
-            <li><a href="#">Employee</a></li>
-            <li><a href="#">My Leave</a></li>
-            <li><button id="logout-btn"> Log Out</button></li>
-        </ul>
-        </div>
-        
-        <div class="hero-section">
-            <h2>Welcome to ZakApps HRMS</h2>
-            <div class="scrolling-posts">
-            <div class="news-feed">
-                              <div class="news-item">
-                  <h3>News Item 1</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div> 
-                            <div class="news-item">
-                  <h3>News Item 2</h3>
-                  <p>Nulla facilisi. Sed ut dui aliquet, pretium est nec.</p>
-                </div>
-                <div class="news-item">
-                  <h3>News Item 3</h3>
-                  <p>Phasellus sit amet dolor eget lectus varius dignissim.</p>
-                </div>
-                         </div>
-                        </div>
-        </div>
-        
-        <div class="features-section">
-            <a href="Employee.html">
-            <div class="feature">
-                <h3>Employee Management</h3>
-                <p>Manage employee information, track attendance, and assign roles and responsibilities.</p>
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">ZakApps</h2>
             </div>
-        </a>
-        <a href="leave.html">
-            <div class="feature">
-                <h3>Leave Management</h3>
-                <p>Manage employee leave requests, track leave balances, and approve or reject leave applications.</p>
-            </div>
-        </a>
-            <div class="feature">
-                <h3>Performance Management</h3>
-                <p>Set performance goals, conduct performance reviews, and provide feedback to employees.</p>
+            <div class="menu">
+                <ul>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="Employee.html">EMPLOYEE</a></li>
+                    <li><a href="#">LEAVE</a></li>
+                    <li><a href="#">CONTACT</a></li>
+                    <li><button class="logout-btn" id="logout-btn">LogOut</button></li>
+                </ul>
             </div>
         </div>
-        
+        <div class="content">
+            <h1>ZakApps <br><span>HRMS</span> </h1>
+            <p class="par">Welcome to HRMS of ZakApps <br>An HRMS, or human resources management system, is a suite of software applications used to manage human resources and related processes throughout the employee lifecycle. An HRMS enables a company to fully understand its workforce while staying compliant with changing tax laws and labor regulations.
+
+
+                HR leaders and staff are the primary users, given that they run day-to-day workforce operations and are responsible for compliance and performance reporting. However, HR isn’t the only department that benefits. Companies can empower managers and employees with self-service for common tasks—an important selling point for younger hires. Executives can use an HRMS to generate data on workforce trends and their business implications.
+               
+                And given that HR-related costs are some of the largest expenses incurred by a company, HRMS integration with the accounting system is invaluable for finance teams. Leading providers will go beyond basic accounting to help a company wring more financial insights out of HR data.</p>
+        </div>
         <footer>
             <p>&copy; 2023 HRMS. All rights reserved.</p>
         </footer>
     </div>
-    <script>
-        // JavaScript code for handling log out functionality
-        document.getElementById('logout-btn').addEventListener('click', function() {
-            // Add your log out code here
-            // This can include clearing session data, redirecting to the login page, etc.
-            window.location.replace('index.html');
-            window.history.pushState({}, '', '');
-        });
-    </script>
 </body>
 </html>
+
+
+

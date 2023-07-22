@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Management</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Employee Management</h1>
+        <form id="employeeForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+
+            <label for="Phone number">Phone:</label>
+            <input type="number" id="Phone" required>
+            
+            <label for="email">email:</label>
+            <input type="email" id="email" required>
+
+            <label for="position">Position:</label>
+            <input type="text" id="position" required>
+
+            <label for="salary">Salary:</label>
+            <input type="number" id="salary" required>
+
+            <button type="submit">Add Employee</button>
+        </form>
+
+        <div id="employeeTable"></div>
+    </div>
+
+    <script>
+const employeeForm = document.getElementById('employeeForm');
+const employeeTable = document.getElementById('employeeTable');
+let employees = [];
+
+function addEmployee(name, Phone, email, position, salary) {
+    const employee = {
+        name: name,
+        Phone: Phone,
+        email: email,
+        position: position,
+        salary: salary
+    };
+    employees.push(employee);
+}
+
+function displayEmployees() {
+    employeeTable.innerHTML = `
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Phone Number</th>
+                <th>email</th>
+                <th>Position</th>
+                <th>Salary</th>
+                <th>Actions</th>
+            </tr>
+            ${employees.map((employee, index) => `
+                <tr>
+                    <td>${employee.name}</td>
+                    <td>${employee.Phone}</td>
+                    <td>${employee.email}</td>
+                    <td>${employee.position}</td>
+                    <td>${employee.salary}</td>
+                    <td>
+                        <button onclick="editEmployee(${index})">Edit</button>
+                        <button onclick="deleteEmployee(${index})">Delete</button>
+                    </td>
+                </tr>
+            `).join('')}
+        </table>
+    `;
+}
+
+function editEmployee(index) {
+    const { name, position, salary } = employees[index];
+    const newName = prompt('Enter new name:', name);
+    const newPhone = prompt('Enter new Phone Number', Phone);
+    const newEmail = prompt('Enter new email', email);
+    const newPosition = prompt('Enter new position:', position);
+    const newSalary = prompt('Enter new salary:', salary);
+
+    if (newName && newPosition && newSalary) {
+        employees[index].name = newName;
+        employees[index].Phone = newPhone;
+        employees[index].email = newEmail;    
+        employees[index].position = newPosition;
+        employees[index].salary = newSalary;
+        displayEmployees();
+    }
+}
+
+function deleteEmployee(index) {
+    employees.splice(index, 1);
+    displayEmployees();
+}
+
+employeeForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const name = document.getElementById('name').value;
+    const Phone = document.getElementById('Phone').value;
+    const email = document.getElementById('email').value;    
+    const position = document.getElementById('position').value;
+    const salary = document.getElementById('salary').value;
+
+    if (name && Phone && email && position && salary) {
+        addEmployee(name, Phone, email, position, salary);
+        displayEmployees();
+        employeeForm.reset();
+    }
+});
+
+// For demonstration purposes, let's add some dummy data initially
+addEmployee('John Doe', 'Software Developer', 50000);
+addEmployee('Jane Smith', 'Project Manager', 60000);
+addEmployee('Mark Johnson', 'UI/UX Designer', 45000);
+
+// Display the employees table
+displayEmployees();
+
+    </script>
+</body>
+</html>
